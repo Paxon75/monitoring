@@ -1,12 +1,12 @@
 
-import { SalespersonData } from '../types.ts';
+import { SalespersonData } from '../types';
 import {
     CONTACT_SOURCES_KEY_TO_VALUE_MAP,
     CONTACT_SOURCES_VALUE_TO_KEY_MAP,
     BACKUP_FILE_VERSION,
     BACKUP_CSV_DELIMITER,
     BACKUP_CSV_EOL
-} from '../constants.ts';
+} from '../constants';
 
 // Helper to safely format CSV fields for backup
 const safeField = (field: string | number | undefined): string => {
@@ -178,7 +178,7 @@ export function parseBackupCSVToSalespersonData(csvString: string): { salesperso
       
       console.log(`[CSV PARSER DATA ROW] Assigning to restoredData[${year}][${monthIdx}][${day}]['${sourceValue}']: { count: ${count}, note: '${note}' }`);
       restoredData[year][monthIdx][day][sourceValue] = { count, note };
-      // console.log(`[CSV PARSER DATA ROW] Current state of restoredData[${year}][${monthIdx}][${day}]:`, JSON.stringify(restoredData[year][monthIdx][day]));
+      // console.log(`[CSV PARSER DATA ROW] Current state of restoredData[${year}][${monthIdx}][${day}]:`, JSON.stringify(restoredData[year][${monthIdx}][${day}]));
       processedRowCount++;
     } catch (e) {
       console.error("[CSV PARSER DATA ROW] Error processing parsed data row from backup:", row, e);

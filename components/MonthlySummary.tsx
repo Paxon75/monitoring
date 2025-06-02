@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { MonthData, ContactSource } from '../types.ts';
-import { CONTACT_SOURCES_LIST } from '../constants.ts';
+import { MonthData, ContactSource } from '../types';
+import { CONTACT_SOURCES_LIST } from '../constants';
 
 interface MonthlySummaryProps {
   monthData: MonthData | undefined;

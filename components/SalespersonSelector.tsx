@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { SALESPEOPLE_IDS } from '../constants.ts';
-import { UserIcon } from './icons.tsx';
+import { SALESPEOPLE_IDS } from '../constants';
+import { UserIcon } from './icons';
 
 interface SalespersonSelectorProps {
   selectedSalesperson: string;

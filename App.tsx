@@ -1,20 +1,20 @@
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { AllSalesData, ContactSource, DayData, MonthData, YearData, SalespersonData, Week, PrintableContent, ReportType, SingleSummary, BackupSettings } from './types.ts';
-import { useLocalStorage } from './hooks/useLocalStorage.ts';
-import { SALESPEOPLE_IDS, START_YEAR, START_MONTH_INDEX, MONTH_NAMES_PL, CONTACT_SOURCES_ENUM, CONTACT_SOURCES_LIST, BACKUP_CSV_EOL } from './constants.ts';
-import { getWeeksInMonth, formatDateFull } from './utils/dateUtils.ts';
-import { salespersonDataToBackupCSV, parseBackupCSVToSalespersonData } from './utils/csvUtils.ts';
-import SalespersonSelector from './components/SalespersonSelector.tsx';
-import MonthNavigator from './components/MonthNavigator.tsx';
-import DayCard from './components/DayCard.tsx';
-import MonthlySummary from './components/MonthlySummary.tsx';
-import WeeklySummary from './components/WeeklySummary.tsx';
-import PrintModal from './components/PrintModal.tsx';
-import BackupSettingsModal from './components/BackupSettingsModal.tsx';
-import RestoreConfirmModal from './components/RestoreConfirmModal.tsx'; // New Import
-import Toast from './components/Toast.tsx';
-import { DownloadIcon, CogIcon, SaveIcon, UploadIcon } from './components/icons.tsx';
+import { AllSalesData, ContactSource, DayData, MonthData, YearData, SalespersonData, Week, PrintableContent, ReportType, SingleSummary, BackupSettings } from './types';
+import { useLocalStorage } from './hooks/useLocalStorage';
+import { SALESPEOPLE_IDS, START_YEAR, START_MONTH_INDEX, MONTH_NAMES_PL, CONTACT_SOURCES_ENUM, CONTACT_SOURCES_LIST, BACKUP_CSV_EOL } from './constants';
+import { getWeeksInMonth, formatDateFull } from './utils/dateUtils';
+import { salespersonDataToBackupCSV, parseBackupCSVToSalespersonData } from './utils/csvUtils';
+import SalespersonSelector from './components/SalespersonSelector';
+import MonthNavigator from './components/MonthNavigator';
+import DayCard from './components/DayCard';
+import MonthlySummary from './components/MonthlySummary';
+import WeeklySummary from './components/WeeklySummary';
+import PrintModal from './components/PrintModal';
+import BackupSettingsModal from './components/BackupSettingsModal';
+import RestoreConfirmModal from './components/RestoreConfirmModal';
+import Toast from './components/Toast';
+import { DownloadIcon, CogIcon, SaveIcon, UploadIcon } from './components/icons';
 
 interface ParsedBackupData {
   salespersonId: string;

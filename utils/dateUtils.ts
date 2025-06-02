@@ -1,4 +1,4 @@
-import { Week } from '../types.ts';
+import { Week } from '../types';
 
 export function getWeeksInMonth(year: number, monthIndex: number): Week[] {
   const weeks: Week[] = [];

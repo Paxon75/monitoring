@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ReportType } from '../types.ts';
+import { ReportType } from '../types';
 
 interface PrintModalProps {
   isOpen: boolean;

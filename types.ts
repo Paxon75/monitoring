@@ -1,4 +1,4 @@
-import { CONTACT_SOURCES_ENUM } from './constants.ts';
+import { CONTACT_SOURCES_ENUM } from './constants';
 
 export type ContactSource = typeof CONTACT_SOURCES_ENUM[keyof typeof CONTACT_SOURCES_ENUM];
 

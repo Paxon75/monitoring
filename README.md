@@ -15,29 +15,78 @@ Aplikacja webowa do śledzenia źródeł pochodzenia kontaktów dla działu hand
     *   **Manualna:** Tworzenie pliku kopii zapasowej (.csv) dla danych wybranego handlowca.
     *   **Automatyczna:** Konfiguracja dwóch pór dnia, o których aplikacja (jeśli otwarta) automatycznie podejmie próbę utworzenia kopii zapasowej dla aktualnie wybranego handlowca.
 *   **Przywracanie Danych z Kopii:** Możliwość wczytania danych handlowca z wcześniej utworzonego pliku kopii zapasowej (.csv).
-*   **Funkcjonalność Offline:** Dane są przechowywane w LocalStorage przeglądarki, co umożliwia pracę bez stałego połączenia z internetem po pierwszym załadowaniu aplikacji.
+*   **Funkcjonalność Offline:** Dane są przechowywane w LocalStorage przeglądarki, co umożliwia pracę bez stałego połączenia z internetem po pierwszym załadowaniu aplikacji i jej zasobów.
 *   **Responsywny Design:** Interfejs dostosowuje się do różnych rozmiarów ekranu.
 
 ## Stos Technologiczny
 
-*   **React 19:** Biblioteka JavaScript do budowy interfejsów użytkownika (ładowana dynamicznie z esm.sh).
+*   **React 19:** Biblioteka JavaScript do budowy interfejsów użytkownika.
 *   **TypeScript:** Nadzbiór JavaScriptu dodający statyczne typowanie.
+*   **Vite:** Narzędzie do budowy frontendowej, zapewniające szybki serwer deweloperski i optymalizację buildów produkcyjnych.
 *   **Tailwind CSS:** Framework CSS do szybkiego stylowania (ładowany z CDN).
-*   **HTML5, CSS3, JavaScript (ES6 Modules):** Podstawowe technologie webowe.
+*   **HTML5, CSS3, JavaScript (ES Modules):** Podstawowe technologie webowe.
 
-## Uruchomienie Aplikacji
+## Uruchomienie Aplikacji Lokalnie (Development)
 
-Aplikacja nie wymaga procesu budowania ani instalacji zależności za pomocą menedżera pakietów (jak npm czy yarn) do podstawowego uruchomienia.
+1.  **Wymagania:**
+    *   Node.js (zalecana wersja LTS)
+    *   npm lub yarn
 
-1.  **Sklonuj repozytorium (lub pobierz pliki):**
+2.  **Kroki:**
+    *   Sklonuj repozytorium:
+        ```bash
+        git clone <adres-repozytorium>
+        cd <nazwa-folderu-repozytorium>
+        ```
+    *   Zainstaluj zależności:
+        ```bash
+        npm install
+        # lub
+        yarn install
+        ```
+    *   Uruchom serwer deweloperski Vite:
+        ```bash
+        npm run dev
+        # lub
+        yarn dev
+        ```
+    *   Otwórz aplikację w przeglądarce pod adresem wskazanym przez Vite (zazwyczaj `http://localhost:5173`).
+
+## Budowanie Aplikacji (Production)
+
+1.  **Zainstaluj zależności** (jeśli jeszcze tego nie zrobiłeś):
     ```bash
-    git clone <adres-repozytorium>
-    cd <nazwa-folderu-repozytorium>
+    npm install
+    # lub
+    yarn install
     ```
-2.  **Otwórz plik `index.html`:**
-    Bezpośrednio w nowoczesnej przeglądarce internetowej (np. Chrome, Firefox, Edge, Safari).
+2.  **Uruchom skrypt budowania:**
+    ```bash
+    npm run build
+    # lub
+    yarn build
+    ```
+    Vite stworzy folder `dist` w głównym katalogu projektu. Ten folder zawiera wszystkie zoptymalizowane, statyczne pliki gotowe do wdrożenia.
 
-**Ważne:** Przy pierwszym uruchomieniu oraz do poprawnego działania niektórych funkcji (jak ładowanie Reacta i Tailwind CSS z CDN) wymagane jest połączenie z internetem. Po załadowaniu zasobów, główna funkcjonalność aplikacji (wprowadzanie i przeglądanie danych) działa offline dzięki LocalStorage.
+3.  **Podgląd builda produkcyjnego (opcjonalnie):**
+    ```bash
+    npm run preview
+    # lub
+    yarn preview
+    ```
+
+## Wdrożenie na GitHub Pages
+
+1.  **Zbuduj aplikację:** Upewnij się, że masz aktualną wersję produkcyjną w folderze `dist` (patrz sekcja "Budowanie Aplikacji").
+2.  **Wyślij zmiany do GitHub:** Upewnij się, że wszystkie pliki projektu, włącznie z folderem `dist` (jeśli nie używasz GitHub Actions do budowania), są wysłane do Twojego repozytorium na GitHub. *Lepszą praktyką jest budowanie w ramach GitHub Actions i wdrażanie tylko folderu `dist` na branch `gh-pages` lub konfigurowanie Pages do serwowania z folderu `dist` na branchu `main`.*
+3.  **Skonfiguruj GitHub Pages:**
+    *   Przejdź do ustawień swojego repozytorium na GitHub (`Settings` > `Pages`).
+    *   W sekcji `Build and deployment`:
+        *   Jako `Source` wybierz `Deploy from a branch`.
+        *   Jako `Branch` wybierz swój główny branch (np. `main` lub `master`).
+        *   Dla folderu wybierz `/(root)` **jeśli wysyłasz folder `dist` jako główny content brancha `gh-pages`** LUB wybierz `/docs` **jeśli folder `dist` został przemianowany na `docs` i jest w głównym branchu** LUB (NAJLEPIEJ) wybierz `/(root)` i użyj GitHub Actions do zbudowania i wdrożenia do brancha `gh-pages`, a następnie ustaw `gh-pages` jako źródło.
+        *   **Jeśli budujesz lokalnie i wysyłasz folder `dist` bezpośrednio do brancha `main`**: skonfiguruj GitHub Pages, aby serwował z folderu `/dist` na branchu `main`. (Upewnij się, że `base: './'` jest ustawione w `vite.config.ts` dla poprawnego ładowania zasobów).
+    *   Zapisz zmiany. GitHub Pages powinno po chwili opublikować Twoją stronę pod adresem `https://<TWOJA-NAZWA-UZYTKOWNIKA>.github.io/<NAZWA-REPOZYTORIUM>/`.
 
 ## Przechowywanie Danych
 
@@ -54,8 +103,9 @@ Wszystkie dane wprowadzane do aplikacji (kontakty, notatki, ustawienia) są prze
 
 ## Struktura Projektu
 
-*   `index.html`: Główny plik HTML.
-*   `index.tsx`: Główny plik TypeScript/React, inicjalizujący aplikację.
+*   `index.html`: Główny plik HTML (szablon dla Vite).
+*   `vite.config.ts`: Konfiguracja narzędzia Vite.
+*   `index.tsx`: Główny plik TypeScript/React, inicjalizujący aplikację (punkt wejścia dla Vite).
 *   `App.tsx`: Główny komponent aplikacji.
 *   `components/`: Folder zawierający komponenty ReactUI.
 *   `hooks/`: Folder zawierający niestandardowe hooki React.
@@ -63,7 +113,8 @@ Wszystkie dane wprowadzane do aplikacji (kontakty, notatki, ustawienia) są prze
 *   `constants.ts`: Plik z globalnymi stałymi używanymi w aplikacji.
 *   `types.ts`: Plik z definicjami typów TypeScript.
 *   `metadata.json`: Plik metadanych (może być używany przez zewnętrzne narzędzia/platformy).
-*   `package.json`: Podstawowe informacje o projekcie i skrypty (głównie informacyjne dla tego typu projektu).
+*   `package.json`: Definicje zależności projektu i skrypty (npm/yarn).
+*   `dist/`: Folder generowany przez `npm run build`, zawierający gotową do wdrożenia aplikację. (Nie powinien być zwykle commitowany, jeśli używasz CI/CD do budowania).
 
 ## Licencja
 Projekt jest udostępniany na licencji MIT. Zobacz plik `LICENSE` po więcej informacji.

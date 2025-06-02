@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { MONTH_NAMES_PL, START_YEAR, START_MONTH_INDEX, END_MONTH_INDEX } from '../constants.ts';
-import { ChevronLeftIcon, ChevronRightIcon, CalendarDaysIcon } from './icons.tsx';
+import { MONTH_NAMES_PL, START_YEAR, START_MONTH_INDEX, END_MONTH_INDEX } from '../constants';
+import { ChevronLeftIcon, ChevronRightIcon, CalendarDaysIcon } from './icons';
 
 interface MonthNavigatorProps {
   currentYear: number;

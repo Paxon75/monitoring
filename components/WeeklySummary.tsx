@@ -1,6 +1,6 @@
 import React from 'react';
-import { MonthData, ContactSource, Week, SingleSummary } from '../types.ts';
-import { CONTACT_SOURCES_LIST } from '../constants.ts';
+import { MonthData, ContactSource, Week, SingleSummary } from '../types';
+import { CONTACT_SOURCES_LIST } from '../constants';
 
 interface WeeklySummaryProps {
   monthData: MonthData | undefined;

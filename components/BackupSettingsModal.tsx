@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BackupSettings } from '../types.ts';
+import { BackupSettings } from '../types';
 
 interface BackupSettingsModalProps {
   isOpen: boolean;

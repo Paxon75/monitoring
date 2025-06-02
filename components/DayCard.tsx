@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { ContactSource, DayData, SourceEntry } from '../types.ts';
-import { CONTACT_SOURCES_LIST, CONTACT_SOURCES_ENUM, DAY_NAMES_PL_SHORT } from '../constants.ts';
-import { PlusIcon, MinusIcon } from './icons.tsx';
+import { ContactSource, DayData, SourceEntry } from '../types';
+import { CONTACT_SOURCES_LIST, CONTACT_SOURCES_ENUM, DAY_NAMES_PL_SHORT } from '../constants';
+import { PlusIcon, MinusIcon } from './icons';
 
 interface DayCardProps {
   day: number;

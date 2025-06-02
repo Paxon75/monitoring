@@ -1,12 +1,15 @@
 {
   "name": "monitorowanie-zrodel-kontaktow-web",
-  "version": "1.0.0",
+  "version": "1.1.0",
+  "type": "module",
   "description": "Aplikacja webowa do śledzenia źródeł kontaktów dla działu handlowego.",
   "main": "index.tsx",
-  "author": "Twoja Nazwa",
+  "author": "Paxon75",
   "license": "ISC",
   "scripts": {
-    "dev-comment": "Aby uruchomić tę aplikację, otwórz plik index.html w przeglądarce. Upewnij się, że masz połączenie z internetem, aby załadować zależności React z esm.sh."
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^19.1.0",
@@ -14,6 +17,9 @@
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0"
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.13"
   }
 }
