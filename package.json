@@ -1,0 +1,19 @@
+{
+  "name": "monitorowanie-zrodel-kontaktow-web",
+  "version": "1.0.0",
+  "description": "Aplikacja webowa do śledzenia źródeł kontaktów dla działu handlowego.",
+  "main": "index.tsx",
+  "author": "Twoja Nazwa",
+  "license": "ISC",
+  "scripts": {
+    "dev-comment": "Aby uruchomić tę aplikację, otwórz plik index.html w przeglądarce. Upewnij się, że masz połączenie z internetem, aby załadować zależności React z esm.sh."
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0"
+  }
+}

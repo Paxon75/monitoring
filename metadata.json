@@ -1,0 +1,6 @@
+{
+  "name": "Monitorowanie Źródeł Kontaktów",
+  "description": "Aplikacja do śledzenia źródeł pochodzenia kontaktów dla działu handlowego. Umożliwia handlowcom rejestrowanie kontaktów według źródła dla każdego dnia miesiąca, począwszy od czerwca 2025 roku, oraz generowanie miesięcznych podsumowań.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
